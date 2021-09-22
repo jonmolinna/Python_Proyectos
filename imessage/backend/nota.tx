@@ -1,0 +1,13 @@
+pip install virtualenv => Instalando el entorno virtual.
+python -m virtualenv name_virtual (venv) => Creando un entorno virtual.
+.\venv\Scripts\activate => en otra consola, para activar el entorno virtual.
+
+=> en tu directorio de existir (venv) ahi instalas tus modulos
+
+Instalando Modulos
+---------------------------------------------------------
+pip install flask
+pip install Flask-PyMongo
+pip install flask-cors
+pip install pusher
+pip install uuid
