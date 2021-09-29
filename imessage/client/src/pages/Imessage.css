@@ -1,0 +1,11 @@
+.imessage {
+  display: flex;
+}
+
+.imessage__sidebar {
+  flex: 0.35;
+}
+
+.imessage__chat {
+  flex: 0.65;
+}
