@@ -1,0 +1,94 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--border-color);
+  height: 100vh;
+  background-color: var(--third-color);
+}
+
+.chat__header {
+  background-color: var(--first-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.chat__header svg {
+  color: #f4f4f4;
+}
+
+.chat__headerLeft {
+  display: flex;
+  flex-direction: row;
+  margin-right: 1rem;
+}
+
+.chat__headerCenter {
+  flex: 1;
+}
+
+.chat__headerCenter p {
+  margin: 0;
+}
+
+.chat__headerCenter small {
+  color: var(--logo-color);
+}
+
+.chat__messages {
+  flex: 1;
+  background-image: url("https://res.cloudinary.com/dhdxq3mkm/image/upload/v1632830611/whatsapp-project/diente-leon_xn5pma.png");
+  background-size: cover;
+  background-position: bottom center;
+  width: 100%;
+  object-fit: cover;
+  object-position: top right;
+  overflow: scroll;
+  position: relative;
+  padding: 1.3rem 1rem;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.chat__messages::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.chat__messages {
+  -ms-overflow-style: none; /*IE and Edge*/
+  scrollbar-width: none; /*Firefox*/
+}
+
+.chat__input {
+  background-color: var(--first-color);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.6rem;
+}
+
+.chat__input svg {
+  color: #f4f4f4;
+}
+
+.chat__inputCenter {
+  flex: 1;
+}
+
+.chat__form input {
+  height: 2rem;
+  width: 100%;
+  background-color: var(--first-color);
+  border: none;
+  outline: none;
+  color: #f4f4f4;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.chat__form button {
+  display: none;
+}

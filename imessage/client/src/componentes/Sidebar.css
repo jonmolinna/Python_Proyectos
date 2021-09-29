@@ -1,0 +1,48 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sidebar__header {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar__header > svg {
+  margin-right: 1rem;
+}
+
+.sidebar__seach {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: var(--second-color);
+  border-radius: 5px;
+}
+
+.sidebar__seach input {
+  height: 1.6rem;
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  background-color: var(--second-color);
+  color: white;
+}
+
+.sidebar__chats {
+  overflow: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.sidebar__chats::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.sidebar__chats {
+  -ms-overflow-style: none; /*IE and Edge*/
+  scrollbar-width: none; /*Firefox*/
+}
