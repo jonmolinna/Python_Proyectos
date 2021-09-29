@@ -1,0 +1,26 @@
+:root {
+  --first-color: #1a2231;
+  --second-color: #293142;
+  --border-color: #3d4655;
+  --logo-color: #1c7cac;
+  --third-color: #11161f;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  color: #f4f4f4;
+  background-color: var(--first-color);
+}
