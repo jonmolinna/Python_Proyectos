@@ -1,8 +1,9 @@
-from bson.objectid import ObjectId
 from flask import Flask, jsonify, request
-from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo, ObjectId
 from flask_cors import CORS
 import uuid
+
+from werkzeug.datastructures import MultiDict
 
 app = Flask(__name__)
 
@@ -45,9 +46,25 @@ def addMessage(idGroup):
     messages.update_one(
     {'_id': ObjectId(idGroup)},
     {'$push': {'conversation': chat}})
+
     return jsonify({
-        "message": "Message Add"
+        "message": chat
     })
+
+# Eliminar un Message del Grupo
+@app.route('/api/message/deleteMessage/<idGroup>/<idMessage>', methods=['DELETE'])
+def deleteMessage(idGroup, idMessage):
+    print(idGroup, idMessage)
+
+    messages.update_one(
+        {'_id': ObjectId(idGroup)},
+        { '$pull' : {'conversation': {'_id': idMessage}}},
+    )
+
+    return jsonify({
+        'message': "deleted"
+    })
+
 
 # Obtener el ultimo mensaje de cada grupo
 @app.route('/api/message/getLastMessageGroups', methods=['GET'])
