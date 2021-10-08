@@ -1,0 +1,19 @@
+.home {
+  height: 100vh;
+  background-color: var(--third-color);
+  border-left: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10vh;
+}
+
+.home__name {
+  color: var(--logo-color);
+}
+
+.home__select {
+  background-color: var(--second-color);
+  padding: 0.5rem;
+  border-radius: 40px;
+}

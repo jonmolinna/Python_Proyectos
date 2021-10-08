@@ -1,0 +1,35 @@
+.modalTime {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.3rem;
+}
+
+.modalTime__card {
+  background-color: #f4f4f4;
+  color: #000;
+  border-radius: 0.5rem;
+  padding: 0.2rem 0.6rem;
+  max-width: 400px;
+}
+
+.modalTime__card > p {
+  margin: 0.2rem 0;
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+.modalTime__card input {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+  outline-color: var(--logo-color);
+  width: 100%;
+}
+
+.modalTime__button {
+  margin-left: auto;
+  padding: 0;
+  width: 160px;
+  display: flex;
+  justify-content: flex-end;
+}

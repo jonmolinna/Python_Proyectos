@@ -33,15 +33,20 @@
   margin: 0;
 }
 
-.chat__headerCenter small {
+.chat__timestamp {
   color: var(--logo-color);
+}
+
+.chat__timeDesktop {
+  display: none;
 }
 
 .chat__messages {
   flex: 1;
-  background-image: url("https://res.cloudinary.com/dhdxq3mkm/image/upload/v1632830611/whatsapp-project/diente-leon_xn5pma.png");
+  background-image: url("https://res.cloudinary.com/dhdxq3mkm/image/upload/v1633005084/whatsapp-project/Leon_cnipqa.png");
   background-size: cover;
   background-position: bottom center;
+  background-repeat: repeat;
   width: 100%;
   object-fit: cover;
   object-position: top right;
@@ -85,10 +90,17 @@
   border: none;
   outline: none;
   color: #f4f4f4;
-  font-size: 1.1rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 100;
 }
 
 .chat__form button {
   display: none;
+}
+
+/*********** Media 370px ****************/
+@media screen and (min-width: 370px) {
+  .chat__timeDesktop {
+    display: flex;
+  }
 }

@@ -11,10 +11,8 @@
   background-color: var(--second-color);
 }
 
-.sidebarChat__avatar {
-  height: 3rem;
-  width: 3rem;
-  border-radius: 50%;
+.sidebarChat__active {
+  background-color: var(--second-color);
 }
 
 .sidebarChat__info {
@@ -29,6 +27,7 @@
   font-size: 0.9rem;
   font-weight: 100;
   margin: 0;
+  color: #fff;
 }
 
 .sidebarChat__chat {
@@ -45,7 +44,11 @@
 
 .sidebarChat__message {
   color: #c0bebe;
+  width: 230px;
   font-size: 0.9rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .sidebarChat__time {
