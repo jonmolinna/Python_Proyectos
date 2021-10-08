@@ -1,11 +1,24 @@
-.imessage {
-  display: flex;
+.imessage__movil {
+  height: 100vh;
+}
+.imessage__desktop {
+  display: none;
 }
 
-.imessage__sidebar {
-  flex: 0.35;
-}
+/*********** Media 770px ****************/
+@media screen and (min-width: 770px) {
+  .imessage__movil {
+    display: none;
+  }
 
-.imessage__chat {
-  flex: 0.65;
+  .imessage__desktop {
+    display: flex;
+  }
+  .imessage__sidebar {
+    flex: 0.35;
+  }
+
+  .imessage__chat {
+    flex: 0.65;
+  }
 }
