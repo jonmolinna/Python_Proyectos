@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Imessage from './pages/Imessage';
 import Login from './pages/Login';
+import { ToastContainer } from 'react-toastify';
+
+import { useAuthState } from './context/auth';
 
 function App() {
-  const [name, setName] = useState("Jon Dallas");
-  console.log(setName);
+  const { username } = useAuthState();
 
   return (
-    <div className="App">
+    <>
       {
-        name? <Imessage /> : <Login />
+        username? <Imessage /> : <Login />
       }
-    </div>
+      <ToastContainer />
+    </>
   );
 }
 
