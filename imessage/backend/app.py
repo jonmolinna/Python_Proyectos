@@ -2,17 +2,35 @@ from flask import Flask, jsonify, request
 from flask_pymongo import PyMongo, ObjectId
 from flask_cors import CORS
 import uuid
+import pusher
 
-from werkzeug.datastructures import MultiDict
+pusher_client = pusher.Pusher(
+  app_id='1280646',
+  key='73c598bc789180705c3f',
+  secret='7154d36c50f9121abea0',
+  cluster='us2',
+  ssl=True
+)
 
 app = Flask(__name__)
 
-app.config['MONGO_URI'] = 'mongodb://localhost/imessage_project'
-mongo = PyMongo(app)
+try:
+    #app.config['MONGO_URI'] = 'mongodb://localhost/imessage_project'
+    app.config['MONGO_URI'] = 'mongodb+srv://admin:vdkM3zBwzqOXCSGl@cluster0.ayy4k.mongodb.net/telegramDB?retryWrites=true&w=majority'
+    mongo = PyMongo(app)
+except:
+    print('No se puede conectar al Servidor')
 
-CORS(app)
+
+CORS(app)   
 
 messages = mongo.db.messages
+
+
+# --------------------------
+# pusher_client.trigger('my-channel', 'my-event', {'message': 'hello world'})
+
+
 
 # Creando Rutas
 @app.route('/')
@@ -47,6 +65,8 @@ def addMessage(idGroup):
     {'_id': ObjectId(idGroup)},
     {'$push': {'conversation': chat}})
 
+    pusher_client.trigger('message', 'new-message', {'message': 'hello world'})
+
     return jsonify({
         "message": chat
     })
@@ -60,6 +80,11 @@ def deleteMessage(idGroup, idMessage):
         {'_id': ObjectId(idGroup)},
         { '$pull' : {'conversation': {'_id': idMessage}}},
     )
+
+    # pusher_client.trigger('message-delete', 'new-message-delete', {'message': 'hello world'})
+    # pusher_client.trigger('message', 'new-message', {'message': 'hello world'})
+    pusher_client.trigger('message', 'new-message', {'message': 'hello world'})
+
 
     return jsonify({
         'message': "deleted"
@@ -106,3 +131,5 @@ def getLastMessageGroup(idGroup):
 # Iniciando Servidor
 if __name__ == "__main__":
     app.run(debug=True)
+
+# pusher js in python => google

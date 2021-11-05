@@ -11,3 +11,11 @@ pip install Flask-PyMongo
 pip install flask-cors
 pip install pusher
 pip install uuid
+
+pip install pymongo
+
+python -m pip install --upgrade 'pymongo[srv]'
+
+vdkM3zBwzqOXCSGl
+
+mongodb+srv://admin:vdkM3zBwzqOXCSGl@cluster0.ayy4k.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
