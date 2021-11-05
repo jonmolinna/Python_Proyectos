@@ -11,12 +11,16 @@ import TimerIcon from '@material-ui/icons/Timer';
 import './Chat.css';
 import ChatMessage from './ChatMessage';
 import moment from 'moment';
+import Pusher from 'pusher-js';
 
 import axios from '../helpers/axios';
 import { useAuthState, useAuthDispatch } from '../context/auth';
 import ModalTime from './ModalTime';
 
 // PUSHER
+const pusher = new Pusher('73c598bc789180705c3f', {
+    cluster: 'us2'
+});
 
 const Chat = () => {
     const { username, messageID, timeDestructor, chatID } = useAuthState();
@@ -41,7 +45,12 @@ const Chat = () => {
     };
 
     useEffect(() => {
+        pusher.unsubscribe('message');
         getMessages(messageID);
+        const channel = pusher.subscribe('message');
+        channel.bind('new-message', function(data){
+            getMessages(messageID);
+        });
     }, [messageID]);
 
     let ultFecha = moment(parseInt(time)).format('LLLL');
@@ -74,6 +83,7 @@ const Chat = () => {
         if(timeDestructor > 2 && chatID){
             setTimeout(() => {
             axios.delete(`/deleteMessage/${messageID}/${chatID}`)
+            
             }, 1000 * timeDestructor);
 
             dispatch({

@@ -3,10 +3,13 @@ import { Avatar } from '@material-ui/core';
 import './SidebarChat.css';
 import axios from '../helpers/axios';
 import moment from 'moment';
+import Pusher from 'pusher-js';
 
 import { useAuthDispatch, useAuthState } from '../context/auth';
 
-// PUSHER
+const pusher = new Pusher('73c598bc789180705c3f', {
+    cluster: 'us2'
+});
 
 const SidebarChat = ({ chat }) => {
     const { _id, chatname, imgUrl } = chat;
@@ -21,7 +24,16 @@ const SidebarChat = ({ chat }) => {
         axios.get(`/getLastMessageGroup/${_id}`)
             .then(res => {
                 setChatInfo(res.data)
+            }
+        )
+        const channel = pusher.subscribe('message');
+        channel.bind('new-message', function(data){
+            axios.get(`/getLastMessageGroup/${_id}`)
+            .then(res => {
+                setChatInfo(res.data)
             })
+        });
+
     }, [_id]);
 
     const sendMessageID = () => {
